@@ -1,0 +1,149 @@
+<!-- <div class="container">
+  <h1>Book List</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Authors</th>
+        <th >Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books; let i = index">
+        <td> {{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td><button (click)="EditData(i,book)">Edit Book</button></td>
+        <td><button (click)="DeleteData(i,book)">Delete Book</button></td><br>
+      </tr>
+    <tr></tr>
+    </tbody>
+  </table>
+ <h1>Store Book :</h1><br>
+  Author Name : <input type="text" name="authorName" [(ngModel)]="_bookSchema.authorName">
+  Book Name : <input type="text" name="bookName" [(ngModel)]="_bookSchema.bookName">
+   <button (click)="submitBook()">Submit</button>
+
+  <div class="col-md-10">
+     <h1>Update Book :</h1><br>
+    Author Name : <input type="text" name="authorName" [(ngModel)]="bookSchema.authorName">
+    Book Name : <input type="text" name="bookName" [(ngModel)]="bookSchema.bookName">
+    <button (click)="updateBook()">Submit</button>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <div class="md-form card">
+    <div class="row">
+      <div class="col-md-4">
+        Contacts : {{totalContacts}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <input type="text" id="form1" class="form-control" name="authorName" [(ngModel)]="_bookSchema.authorName">
+        <label for="form1">Author Name</label>
+      </div>
+      <div class="col-md-4">
+        <input type="text" id="form2" class="form-control" name="bookName" [(ngModel)]="_bookSchema.bookName">
+        <label for="form2">Book Name</label>
+      </div>
+      <div class="col-md-2">
+        <input type="file" (change)="fileChange(input)" name="picture" accept="application/x-zip-compressed,image/*" #input />
+      </div>
+      <div class="col-md-2">
+        <!-- <button mdbBtn type="button" color="pink" class="waves-light" mdbWavesEffect (click)="submitBook()">Submit</button> -->
+        <button type="button" class="btn btn-default waves-effect waves-light" (click)="submitBook()">Submit </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" *ngFor="let book of books; let i = index">
+      <div class="card mb-5">
+        <!-- <div class="friend-item">
+          <div class="friend-header-thumb cursor-pointer">
+            <img src="{{book.profile || '../../../assets/default-bg.jpg'}}" alt="contact" style="width: 100%;">
+          </div>
+          <div class="friend-item-content text-center" style="margin-top: -83px">
+            <div class="friend-avatar">
+              <div class="author-thumb cursor-pointer">
+                <img [src]="book.profile || '../../../assets/Male.svg' " alt="author" class="network-contact-profile" width="100" height="100">
+              </div>
+              <div class="author-content">
+                <div class="country">
+                  <h4>{{book.title}}</h4>
+                </div>
+                <div class="country">
+                  <h4>{{book.author}}</h4>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-4 mb-2r" style="margin-bottom: 30px">
+              <app-button (click)="DeleteData(i,book)"></app-button>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="ui-block">
+          <div class="friend-item">
+            <div class="friend-header-thumb cursor-pointer">
+              <img src="{{book.profile || '../../../assets/default-bg.jpg'}}" alt="contact" style="width: 100%;">
+            </div>
+        
+            <div class="friend-item-content text-center" style="margin-top: -83px">
+              <div class="friend-avatar">
+                <div class="author-thumb cursor-pointer">
+                  <img [src]="book.profile || '../../../assets/Male.svg' " alt="author" class="network-contact-profile" width="100" height="100">
+                </div>
+                <div class="author-content">
+                  <div class="country">
+                    <h4>{{book.title}}</h4>
+                  </div>
+                  <div class="country">
+                    <h4>{{book.author}}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center mt-4 mb-2r" style="margin-bottom: 30px">
+                <app-button (click)="DeleteData(i,book)"></app-button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="ui-block">
+  <div class="friend-item">
+    <div class="friend-header-thumb cursor-pointer">
+      <img src="{{book.profile || '../../../assets/default-bg.jpg'}}" alt="contact" style="width: 100%;">
+    </div>
+
+    <div class="friend-item-content">
+      <div class="friend-avatar">
+        <div class="author-thumb cursor-pointer">
+          <img [src]="book.profile || '../../../assets/Male.svg' " alt="author" class="network-contact-profile" width="100" height="100">
+          <span class="img-shower bg-blue-light" *ngIf="contactCard.connectionStatus == null || contactCard.connectionStatus == '0' ">
+            <i class="material-icons">check</i>
+          </span>
+        </div>
+        <div class="author-content">
+          <a class="h5 author-name cursor-pointer" (click)="redirectToContact(contactCard)">{{contactCard.name}}</a>
+          <div class="country">
+            <h4>{{book.title}}</h4>
+          </div>
+          <div class="country">
+            <h4>{{book.author}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

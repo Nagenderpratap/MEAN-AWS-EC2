@@ -1,0 +1,36 @@
+<!-- Material form login -->
+<div class="container">
+  <div class="row">
+        <div class="col-md-3">
+
+            </div>
+    <div class="col-md-6 center-block card margin">
+<form>
+    <div class="text-center">
+        <img class="avtar" src='../../assets/aglo.png'><span>Agloscale Login</span>
+    </div>
+    <!-- Material input email -->
+    <div class="md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+        <input type="email" id="materialFormLoginEmailEx" [(ngModel)]="login._Email" name="email" class="form-control">
+        <label for="materialFormLoginEmailEx">Your email</label>
+    </div>
+
+    <!-- Material input password -->
+    <div class="md-form">
+        <i class="fa fa-lock prefix grey-text"></i>
+        <input type="password" id="materialFormLoginPasswordEx" [(ngModel)]="login._Password" name="password" class="form-control">
+        <label for="materialFormLoginPasswordEx">Your password</label>
+    </div>
+
+    <div class="text-center mt-4">
+        <button class="btn aqua-gradient btn-rounded" type="submit" (click)="loginUser()">Login</button>
+    </div>
+</form>
+      </div>
+      <div class="col-md-3">
+
+        </div>
+    </div>
+  </div>
+<!-- Material form login -->
