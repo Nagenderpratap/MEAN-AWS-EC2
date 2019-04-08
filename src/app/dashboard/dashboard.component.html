@@ -1,0 +1,31 @@
+<div class="container card">
+  <div class="row">
+    <div class="col-md-2">
+      
+    </div>
+
+    <div class="col-md-8">
+       <h4><b>{{userData?.user_Name | titlecase}} Dashboard</b><i (click)="openModal(template)" style="cursor: pointer;" class="material-icons float-right">mode_edit</i></h4>
+       <br>
+      <h5><b>Name : </b>{{userData?.user_Name}}</h5>
+      <h5><b>Mobile : </b>{{userData?.user_Mobile}}</h5>
+      <h5><b>Email :</b> {{userData?.user_Email}}</h5>
+    </div>
+    <div class="col-md-2">
+      
+    </div>
+  </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <app-registration-user></app-registration-user>
+    </div>
+ 
+  </ng-template>

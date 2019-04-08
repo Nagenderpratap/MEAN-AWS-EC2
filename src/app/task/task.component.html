@@ -1,0 +1,91 @@
+<div class="container card" style="background-color: aquamarine">
+    <!-- <div class='cursor'></div>
+    <div class='cursor'></div>
+    -->
+    
+  <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="sel1">Countries</label>
+          <select   [ngClass]="{'has-error':addressForm.controls['country'].hasError('required') && submitted}" class="form-control" id="sel1" formControlName="country" required>
+            <option *ngFor="let item of countries" value={{item.name}}><a>{{item.name}}</a></option>
+            <!-- <span *ngIf="addressForm.controls['country'].hasError('required')">
+              country is required.
+            </span> -->
+          </select>
+          <div class="alert alert-danger" *ngIf="addressForm.controls['country'].hasError('required')  &&  submitted">You must select a country.</div>
+          <!-- <div *ngIf="complexForm.controls['lastName'].hasError('required') && complexForm.controls['lastName'].touched" class="alert alert-danger">You must include a last name.</div> -->
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+ 
+          <div formArrayName="city">
+            <div *ngFor="let address of city.controls; let i=index">
+              <label>
+                city:
+                <input type="text" [ngClass]="{'has-error':address.hasError('required') && address.touched}" [formControlName]="i"><span *ngIf="i==0 "  [ngClass]="{'has-error':addressForm.controls['city'].hasError('required')}" class="glyphicon glyphicon-plus"
+                  (click)="addField()"></span><span *ngIf="i>0" class="glyphicon glyphicon-minus"
+                  (click)="removeField(i)"></span>
+              </label>
+              <div class="alert alert-danger"  *ngIf="address.hasError('required') && submitted">Required</div>  
+
+            </div>
+            <!-- <div class="alert alert-danger" *ngIf="addressForm.controls['city'].hasError('required')">You must select a country.</div> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <!-- <button class="btn-primary" [disabled]="addressForm.invalid" type="submit">Submit</button> -->
+        <button class="btn-primary" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="container card" style="background-color: yellow">
+    <!-- <div class='cursor'></div>
+    <div class='cursor'></div>
+    -->
+    
+  
+    <div class="row">
+        <form [formGroup]="otpForm" (ngSubmit)="submitOTP()">
+      <div class="col-md-6">
+        <!-- <ul>
+          <li *ngFor="let dataloop of dataloops"> 
+              {{dataloop.name}}
+              <input type="text" name="intext" [(ngModel)]="dataloop.url" #ft01 (keyup.enter)="keytab($event)"/>  
+          </li>
+        </ul> -->
+        <div class="row" style="margin-top: 5px">
+           
+            <h2 style="color: blueviolet; margin-top:  0px">OTP</h2>
+          <div class="col-md-2">
+              <input  type="text" formControlName="OtpUserInput1"  id="otp1" #otp1 maxlength="1" (keyup)="keytab(otp2,$event,1)"/>  
+          </div>
+          <div class="col-md-2">
+              <input type="text"  formControlName="OtpUserInput2" id="otp2" #otp2 maxlength="1" (keyup)="keytab(otp3,$event,2)"/>  
+            </div>
+            <div class="col-md-2">
+                <input type="text" formControlName="OtpUserInput3" id="otp3" #otp3 maxlength="1" (keyup)="keytab(otp4,$event,3)"/>              
+              </div>
+              <div class="col-md-2">
+                  <input type="text" formControlName="OtpUserInput4" id="otp4" #otp4 maxlength="1" (keyup)="keytab(otp4,$event,4)" />  
+                </div>
+        </div>
+      </div>
+      <div class="col-md-6" style="margin-top: 5px">
+          <button class="btn-primary" type="submit">Submit OTP</button>
+      </div>
+    </form>
+
+    </div>
+    
+</div>

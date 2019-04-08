@@ -42,5 +42,12 @@ export class RegistrationService {
   headers.set('Content-Type', 'application/json; charset=utf-8');
   return  this.httpClient.get(url, {headers: headers});
  }
+
+ tweetUserDetailAPI(Id){
+  const url = '/api/TweetUserDetails/' + Id;
+  const headers = new HttpHeaders();
+  headers.set('Content-Type', 'application/json; charset=utf-8');
+  return  this.httpClient.get(url, {headers: headers});
+ }
 }
 

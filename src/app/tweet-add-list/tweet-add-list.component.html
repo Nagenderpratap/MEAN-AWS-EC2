@@ -1,16 +1,26 @@
-<div class="container">
-  <div class="row card margin">
-      <div class="col-md-2"></div>
+<div class="container card">
+  <div class="row margin ">
+      <div class="col-md-2">
+        <div class="card p-2">
+          <h5><b>Name : </b>{{userData?.user_Name}}</h5>
+          <h5><b>Mobile : </b>{{userData?.user_Mobile}}</h5>
+          <h5><b>Email :</b> {{userData?.user_Email}}</h5>
+
+        </div>
+      </div>
 
     <div class="col-md-8">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <input type="text" placeholder="Search.." [(ngModel)]="tweetSearchKey"  name="msg"  (change)="searchTweet(tweetSearchKey)" name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </div>
         <div class="col-md-4">
             <button class="btn aqua-gradient btn-rounded" data-toggle="modal" data-target="#exampleModal">Tweet</button>
             Total Tweet ( {{totalTweet}})
+          </div>
+          <div class="col-md-2">
+            <button class="btn aqua-gradient btn-rounded float-right" title="dashboard"><span class="glyphicon glyphicon-user" (click)="goToDashboard()"></span></button>
           </div>
       </div>
         <ul class="list-group">
@@ -23,7 +33,9 @@
 
           </ul>
     </div>
-     <div class="col-md-2"></div>
+     <div class="col-md-2">
+       
+     </div>
   </div>
 </div>
 
@@ -48,7 +60,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="tweet()">tweet</button>
+          <button type="button" class="btn btn-primary" (click)="tweet()" data-dismiss="modal">tweet</button>
         </div>
       </div>
     </div>

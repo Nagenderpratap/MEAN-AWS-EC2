@@ -16,11 +16,13 @@ export class TweetAddListComponent implements OnInit {
   };
   totalTweet : number ;
   tweetData  = [];
+  userData : any ;
   tweetSearchKey : string = "";
   constructor(public register: RegistrationService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
     this.getTweetList();
+    this.getUserDetials();
   }
 
  public tweet() {
@@ -77,11 +79,31 @@ export class TweetAddListComponent implements OnInit {
           this.tweetData = [];
            response =  res['data'];
            this.totalTweet = response.length;
-           this.tweetData = response;
+         
       }
     }, err => {
       this.toastr.error('Something went wrong..!', 'Error!',
         { progressBar: true, timeOut: 3000, progressAnimation: 'decreasing', positionClass: 'toast-bottom-right' });
     });
+  }
+
+  public getUserDetials() {
+    this.register.tweetUserDetailAPI(sessionStorage.getItem('userID')).subscribe(res => {
+      if (res['statusCode'] === 'S100') {
+        this.toastr.success('details of user coming!', 'Done!',
+          { progressBar: true, timeOut: 3000, progressAnimation: 'decreasing', positionClass: 'toast-bottom-right' });
+          let response:any =[]; 
+           response =  res['data'];
+           console.log('user details'+JSON.stringify(response));
+           this.userData = response;
+      }
+    }, err => {
+      this.toastr.error('Something went wrong..!', 'Error!',
+        { progressBar: true, timeOut: 3000, progressAnimation: 'decreasing', positionClass: 'toast-bottom-right' });
+    });
+  }
+
+  public goToDashboard(){
+    this.router.navigate(['dashboard']);
   }
 }

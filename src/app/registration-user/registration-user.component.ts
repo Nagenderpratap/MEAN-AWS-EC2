@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
 import {Registration} from '../../model/registration.model';
 import {RegistrationService} from '../services/registration.service';
 import { ToastrService } from 'ngx-toastr';
@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-registration-user',
   templateUrl: './registration-user.component.html',
-  styleUrls: ['./registration-user.component.css']
+  styleUrls: ['./registration-user.component.css'],
 })
 export class RegistrationUserComponent implements OnInit {
 
@@ -72,7 +72,7 @@ export class RegistrationUserComponent implements OnInit {
 
       reader.onload = () => {
         
-          this.user_Info.user_Image.fileValue = reader.result.split(',')[1];
+          // this.user_Info.user_Image.fileValue = reader.result.split(',')[1];
           this.user_Info.user_Image.fileName = file.name;
           this.user_Info.user_Image.fileSize = file.size;
           this.user_Info.user_Image.fileType = file.type;
@@ -84,6 +84,7 @@ export class RegistrationUserComponent implements OnInit {
     let input = new FormData();
     input.append('name', this.form.get('name').value);
     input.append('avatar', this.form.get('avatar').value);
+    // this.dialogRef.close('Pizza!');
     return input;
   }
   

@@ -19,8 +19,15 @@ import { ButtonComponent } from './button/button.component';
 import { EventComponent } from './event/event.component';
 import { TweetAddListComponent } from './tweet-add-list/tweet-add-list.component';
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
+import { TaskComponent } from './task/task.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+// import {MatDialogModule} from '@angular/material/dialog';
+// import { MdcDialogModule } from '@angular-mdc/web';
 
 
+// importing MatDialogModule, MatDialog and MatDialogRef from @angular/material/dialog
 const appRoutes: Routes = [
   {
     path: 'book',
@@ -35,6 +42,9 @@ const appRoutes: Routes = [
   { path: 'register', component: RegistrationUserComponent },
   { path: 'home', component: HomeComponent },
   { path: 'tweet', component: TweetAddListComponent },
+   { path: 'dashboard', component: DashboardComponent },
+
+  { path: 'task', component: TaskComponent },
 
   { path: '**', component: PageNotFoundComponent },
 
@@ -51,7 +61,9 @@ const appRoutes: Routes = [
     HomeComponent,
     ButtonComponent,
     EventComponent,
-    TweetAddListComponent
+    TweetAddListComponent,
+    TaskComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -60,9 +72,12 @@ const appRoutes: Routes = [
     ToastrModule.forRoot(), RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    ),ScrollDispatchModule
+    ),ScrollDispatchModule, ReactiveFormsModule,ModalModule.forRoot(), //MdcDialogModule
   ], schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],
+  entryComponents: [
+    RegistrationUserComponent
+  ],
   bootstrap: [AppComponent]
 })
 
